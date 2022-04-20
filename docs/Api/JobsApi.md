@@ -15,7 +15,7 @@ Method | HTTP request | Description
 ## `servicesApiJobsAddFile()`
 
 ```php
-servicesApiJobsAddFile($id, $name, $trglang, $body)
+servicesApiJobsAddFile($id, $name, $trglang, $due, $body)
 ```
 
 Add a file to a Job.
@@ -42,10 +42,11 @@ $apiInstance = new LiltConnectorSDK\Api\JobsApi(
 $id = 12345; // int | The Job ID.
 $name = sample.txt; // string | The file name.
 $trglang = array('trglang_example'); // string[] | The target language. Many target languages can be added to a source file.
+$due = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The due date for the file.
 $body = "/path/to/file.txt"; // \SplFileObject
 
 try {
-    $apiInstance->servicesApiJobsAddFile($id, $name, $trglang, $body);
+    $apiInstance->servicesApiJobsAddFile($id, $name, $trglang, $due, $body);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->servicesApiJobsAddFile: ', $e->getMessage(), PHP_EOL;
 }
@@ -58,6 +59,7 @@ Name | Type | Description  | Notes
  **id** | **int**| The Job ID. |
  **name** | **string**| The file name. |
  **trglang** | [**string[]**](../Model/string.md)| The target language. Many target languages can be added to a source file. | [optional]
+ **due** | **\DateTime**| The due date for the file. | [optional]
  **body** | **\SplFileObject****\SplFileObject**|  | [optional]
 
 ### Return type
@@ -80,7 +82,7 @@ void (empty response body)
 ## `servicesApiJobsCreateJob()`
 
 ```php
-servicesApiJobsCreateJob(): \LiltConnectorSDK\Model\JobResponse
+servicesApiJobsCreateJob($settings_response): \LiltConnectorSDK\Model\JobResponse
 ```
 
 Create a Connector Job.
@@ -104,9 +106,10 @@ $apiInstance = new LiltConnectorSDK\Api\JobsApi(
     new GuzzleHttp\Client(),
     $config
 );
+$settings_response = new \LiltConnectorSDK\Model\SettingsResponse(); // \LiltConnectorSDK\Model\SettingsResponse
 
 try {
-    $result = $apiInstance->servicesApiJobsCreateJob();
+    $result = $apiInstance->servicesApiJobsCreateJob($settings_response);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->servicesApiJobsCreateJob: ', $e->getMessage(), PHP_EOL;
@@ -115,7 +118,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settings_response** | [**\LiltConnectorSDK\Model\SettingsResponse**](../Model/SettingsResponse.md)|  | [optional]
 
 ### Return type
 
@@ -127,7 +132,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

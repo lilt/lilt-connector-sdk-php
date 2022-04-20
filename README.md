@@ -70,10 +70,11 @@ $apiInstance = new LiltConnectorSDK\Api\JobsApi(
 $id = 12345; // int | The Job ID.
 $name = sample.txt; // string | The file name.
 $trglang = array('trglang_example'); // string[] | The target language. Many target languages can be added to a source file.
+$due = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The due date for the file.
 $body = "/path/to/file.txt"; // \SplFileObject
 
 try {
-    $apiInstance->servicesApiJobsAddFile($id, $name, $trglang, $body);
+    $apiInstance->servicesApiJobsAddFile($id, $name, $trglang, $due, $body);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->servicesApiJobsAddFile: ', $e->getMessage(), PHP_EOL;
 }
@@ -92,6 +93,8 @@ Class | Method | HTTP request | Description
 *JobsApi* | [**servicesApiJobsGetJobs**](docs/Api/JobsApi.md#servicesapijobsgetjobs) | **GET** /jobs | Retrieve a list of Connector Jobs.
 *JobsApi* | [**servicesApiJobsStartJob**](docs/Api/JobsApi.md#servicesapijobsstartjob) | **POST** /jobs/{id}/start | Start a Job.
 *JobsApi* | [**servicesApiJobsSyncJob**](docs/Api/JobsApi.md#servicesapijobssyncjob) | **POST** /jobs/{id}/sync | Start a Sync.
+*SettingsApi* | [**servicesApiSettingsGetSettings**](docs/Api/SettingsApi.md#servicesapisettingsgetsettings) | **GET** /settings | Retrieve the settings.
+*SettingsApi* | [**servicesApiSettingsUpdateSettings**](docs/Api/SettingsApi.md#servicesapisettingsupdatesettings) | **PUT** /settings | Update the settings.
 *TranslationsApi* | [**servicesApiDeliveriesDownloadDelivery**](docs/Api/TranslationsApi.md#servicesapideliveriesdownloaddelivery) | **GET** /translations/{id}/download | Download a Translation.
 *TranslationsApi* | [**servicesApiDeliveriesGetDeliveriesByJobId**](docs/Api/TranslationsApi.md#servicesapideliveriesgetdeliveriesbyjobid) | **GET** /translations | Retrieve a list of Translations.
 *TranslationsApi* | [**servicesApiDeliveriesGetDeliveryById**](docs/Api/TranslationsApi.md#servicesapideliveriesgetdeliverybyid) | **GET** /translations/{id} | Retrieve a Translation.
@@ -100,6 +103,8 @@ Class | Method | HTTP request | Description
 
 - [JobResponse](docs/Model/JobResponse.md)
 - [JobResponse1](docs/Model/JobResponse1.md)
+- [SettingsResponse](docs/Model/SettingsResponse.md)
+- [SettingsResponse1](docs/Model/SettingsResponse1.md)
 - [TranslationResponse](docs/Model/TranslationResponse.md)
 
 ## Authorization

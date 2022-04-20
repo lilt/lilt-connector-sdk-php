@@ -123,15 +123,16 @@ class JobsApi
      * @param  int $id The Job ID. (required)
      * @param  string $name The file name. (required)
      * @param  string[] $trglang The target language. Many target languages can be added to a source file. (optional)
+     * @param  \DateTime $due The due date for the file. (optional)
      * @param  \SplFileObject $body body (optional)
      *
      * @throws \LiltConnectorSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function servicesApiJobsAddFile($id, $name, $trglang = null, $body = null)
+    public function servicesApiJobsAddFile($id, $name, $trglang = null, $due = null, $body = null)
     {
-        $this->servicesApiJobsAddFileWithHttpInfo($id, $name, $trglang, $body);
+        $this->servicesApiJobsAddFileWithHttpInfo($id, $name, $trglang, $due, $body);
     }
 
     /**
@@ -142,15 +143,16 @@ class JobsApi
      * @param  int $id The Job ID. (required)
      * @param  string $name The file name. (required)
      * @param  string[] $trglang The target language. Many target languages can be added to a source file. (optional)
+     * @param  \DateTime $due The due date for the file. (optional)
      * @param  \SplFileObject $body (optional)
      *
      * @throws \LiltConnectorSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function servicesApiJobsAddFileWithHttpInfo($id, $name, $trglang = null, $body = null)
+    public function servicesApiJobsAddFileWithHttpInfo($id, $name, $trglang = null, $due = null, $body = null)
     {
-        $request = $this->servicesApiJobsAddFileRequest($id, $name, $trglang, $body);
+        $request = $this->servicesApiJobsAddFileRequest($id, $name, $trglang, $due, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -204,14 +206,15 @@ class JobsApi
      * @param  int $id The Job ID. (required)
      * @param  string $name The file name. (required)
      * @param  string[] $trglang The target language. Many target languages can be added to a source file. (optional)
+     * @param  \DateTime $due The due date for the file. (optional)
      * @param  \SplFileObject $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function servicesApiJobsAddFileAsync($id, $name, $trglang = null, $body = null)
+    public function servicesApiJobsAddFileAsync($id, $name, $trglang = null, $due = null, $body = null)
     {
-        return $this->servicesApiJobsAddFileAsyncWithHttpInfo($id, $name, $trglang, $body)
+        return $this->servicesApiJobsAddFileAsyncWithHttpInfo($id, $name, $trglang, $due, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -227,15 +230,16 @@ class JobsApi
      * @param  int $id The Job ID. (required)
      * @param  string $name The file name. (required)
      * @param  string[] $trglang The target language. Many target languages can be added to a source file. (optional)
+     * @param  \DateTime $due The due date for the file. (optional)
      * @param  \SplFileObject $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function servicesApiJobsAddFileAsyncWithHttpInfo($id, $name, $trglang = null, $body = null)
+    public function servicesApiJobsAddFileAsyncWithHttpInfo($id, $name, $trglang = null, $due = null, $body = null)
     {
         $returnType = '';
-        $request = $this->servicesApiJobsAddFileRequest($id, $name, $trglang, $body);
+        $request = $this->servicesApiJobsAddFileRequest($id, $name, $trglang, $due, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -266,12 +270,13 @@ class JobsApi
      * @param  int $id The Job ID. (required)
      * @param  string $name The file name. (required)
      * @param  string[] $trglang The target language. Many target languages can be added to a source file. (optional)
+     * @param  \DateTime $due The due date for the file. (optional)
      * @param  \SplFileObject $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function servicesApiJobsAddFileRequest($id, $name, $trglang = null, $body = null)
+    public function servicesApiJobsAddFileRequest($id, $name, $trglang = null, $due = null, $body = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -306,6 +311,14 @@ class JobsApi
             $trglang,
             'trglang', // param base name
             'array', // openApiType
+            'form', // style
+            true // explode
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $due,
+            'due', // param base name
+            'string', // openApiType
             'form', // style
             true // explode
         ) ?? []);
@@ -393,14 +406,15 @@ class JobsApi
      *
      * Create a Connector Job.
      *
+     * @param  \LiltConnectorSDK\Model\SettingsResponse $settings_response settings_response (optional)
      *
      * @throws \LiltConnectorSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \LiltConnectorSDK\Model\JobResponse
      */
-    public function servicesApiJobsCreateJob()
+    public function servicesApiJobsCreateJob($settings_response = null)
     {
-        list($response) = $this->servicesApiJobsCreateJobWithHttpInfo();
+        list($response) = $this->servicesApiJobsCreateJobWithHttpInfo($settings_response);
         return $response;
     }
 
@@ -409,14 +423,15 @@ class JobsApi
      *
      * Create a Connector Job.
      *
+     * @param  \LiltConnectorSDK\Model\SettingsResponse $settings_response (optional)
      *
      * @throws \LiltConnectorSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \LiltConnectorSDK\Model\JobResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function servicesApiJobsCreateJobWithHttpInfo()
+    public function servicesApiJobsCreateJobWithHttpInfo($settings_response = null)
     {
-        $request = $this->servicesApiJobsCreateJobRequest();
+        $request = $this->servicesApiJobsCreateJobRequest($settings_response);
 
         try {
             $options = $this->createHttpClientOption();
@@ -507,13 +522,14 @@ class JobsApi
      *
      * Create a Connector Job.
      *
+     * @param  \LiltConnectorSDK\Model\SettingsResponse $settings_response (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function servicesApiJobsCreateJobAsync()
+    public function servicesApiJobsCreateJobAsync($settings_response = null)
     {
-        return $this->servicesApiJobsCreateJobAsyncWithHttpInfo()
+        return $this->servicesApiJobsCreateJobAsyncWithHttpInfo($settings_response)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -526,14 +542,15 @@ class JobsApi
      *
      * Create a Connector Job.
      *
+     * @param  \LiltConnectorSDK\Model\SettingsResponse $settings_response (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function servicesApiJobsCreateJobAsyncWithHttpInfo()
+    public function servicesApiJobsCreateJobAsyncWithHttpInfo($settings_response = null)
     {
         $returnType = '\LiltConnectorSDK\Model\JobResponse';
-        $request = $this->servicesApiJobsCreateJobRequest();
+        $request = $this->servicesApiJobsCreateJobRequest($settings_response);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -574,11 +591,12 @@ class JobsApi
     /**
      * Create request for operation 'servicesApiJobsCreateJob'
      *
+     * @param  \LiltConnectorSDK\Model\SettingsResponse $settings_response (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function servicesApiJobsCreateJobRequest()
+    public function servicesApiJobsCreateJobRequest($settings_response = null)
     {
 
         $resourcePath = '/jobs';
@@ -599,12 +617,18 @@ class JobsApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['application/json']
             );
         }
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($settings_response)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($settings_response));
+            } else {
+                $httpBody = $settings_response;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
