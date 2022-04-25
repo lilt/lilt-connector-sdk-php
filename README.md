@@ -103,6 +103,7 @@ Class | Method | HTTP request | Description
 
 - [JobResponse](docs/Model/JobResponse.md)
 - [JobResponse1](docs/Model/JobResponse1.md)
+- [JobsResponse](docs/Model/JobsResponse.md)
 - [SettingsResponse](docs/Model/SettingsResponse.md)
 - [SettingsResponse1](docs/Model/SettingsResponse1.md)
 - [TranslationResponse](docs/Model/TranslationResponse.md)

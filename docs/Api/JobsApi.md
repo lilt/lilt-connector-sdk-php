@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 ## `servicesApiJobsGetJobs()`
 
 ```php
-servicesApiJobsGetJobs($limit, $start): \LiltConnectorSDK\Model\JobResponse
+servicesApiJobsGetJobs($limit, $start): \LiltConnectorSDK\Model\JobsResponse
 ```
 
 Retrieve a list of Connector Jobs.
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\LiltConnectorSDK\Model\JobResponse**](../Model/JobResponse.md)
+[**\LiltConnectorSDK\Model\JobsResponse**](../Model/JobsResponse.md)
 
 ### Authorization
 

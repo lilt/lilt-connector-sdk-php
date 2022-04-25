@@ -8,6 +8,7 @@ docs/Api/SettingsApi.md
 docs/Api/TranslationsApi.md
 docs/Model/JobResponse.md
 docs/Model/JobResponse1.md
+docs/Model/JobsResponse.md
 docs/Model/SettingsResponse.md
 docs/Model/SettingsResponse1.md
 docs/Model/TranslationResponse.md
@@ -20,9 +21,11 @@ lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/JobResponse.php
 lib/Model/JobResponse1.php
+lib/Model/JobsResponse.php
 lib/Model/ModelInterface.php
 lib/Model/SettingsResponse.php
 lib/Model/SettingsResponse1.php
 lib/Model/TranslationResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/JobsResponseTest.php

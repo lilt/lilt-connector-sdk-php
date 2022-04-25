@@ -1,6 +1,6 @@
 <?php
 /**
- * JobResponse
+ * JobsResponse
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \LiltConnectorSDK\ObjectSerializer;
 
 /**
- * JobResponse Class Doc Comment
+ * JobsResponse Class Doc Comment
  *
  * @category Class
  * @package  LiltConnectorSDK
@@ -42,7 +42,7 @@ use \LiltConnectorSDK\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class JobResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class JobsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class JobResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Job_Response';
+    protected static $openAPIModelName = 'Jobs_Response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,11 +59,9 @@ class JobResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'status' => 'string',
-        'error_msg' => 'string',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime'
+        'limit' => 'int',
+        'start' => 'int',
+        'results' => '\LiltConnectorSDK\Model\JobResponse[]'
     ];
 
     /**
@@ -74,11 +72,9 @@ class JobResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'status' => null,
-        'error_msg' => null,
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time'
+        'limit' => null,
+        'start' => null,
+        'results' => null
     ];
 
     /**
@@ -108,11 +104,9 @@ class JobResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'status' => 'status',
-        'error_msg' => 'errorMsg',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt'
+        'limit' => 'limit',
+        'start' => 'start',
+        'results' => 'results'
     ];
 
     /**
@@ -121,11 +115,9 @@ class JobResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'status' => 'setStatus',
-        'error_msg' => 'setErrorMsg',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'limit' => 'setLimit',
+        'start' => 'setStart',
+        'results' => 'setResults'
     ];
 
     /**
@@ -134,11 +126,9 @@ class JobResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'status' => 'getStatus',
-        'error_msg' => 'getErrorMsg',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'limit' => 'getLimit',
+        'start' => 'getStart',
+        'results' => 'getResults'
     ];
 
     /**
@@ -182,27 +172,6 @@ class JobResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    const STATUS_DRAFT = 'draft';
-    const STATUS_QUEUED = 'queued';
-    const STATUS_PROCESSING = 'processing';
-    const STATUS_COMPLETE = 'complete';
-    const STATUS_FAILED = 'failed';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_DRAFT,
-            self::STATUS_QUEUED,
-            self::STATUS_PROCESSING,
-            self::STATUS_COMPLETE,
-            self::STATUS_FAILED,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -219,11 +188,9 @@ class JobResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['error_msg'] = $data['error_msg'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
-        $this->container['updated_at'] = $data['updated_at'] ?? null;
+        $this->container['limit'] = $data['limit'] ?? null;
+        $this->container['start'] = $data['start'] ?? null;
+        $this->container['results'] = $data['results'] ?? null;
     }
 
     /**
@@ -234,15 +201,6 @@ class JobResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'status', must be one of '%s'",
-                $this->container['status'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -260,131 +218,73 @@ class JobResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
+     * Gets limit
      *
      * @return int|null
      */
-    public function getId()
+    public function getLimit()
     {
-        return $this->container['id'];
+        return $this->container['limit'];
     }
 
     /**
-     * Sets id
+     * Sets limit
      *
-     * @param int|null $id id
+     * @param int|null $limit limit
      *
      * @return self
      */
-    public function setId($id)
+    public function setLimit($limit)
     {
-        $this->container['id'] = $id;
+        $this->container['limit'] = $limit;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets start
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getStatus()
+    public function getStart()
     {
-        return $this->container['status'];
+        return $this->container['start'];
     }
 
     /**
-     * Sets status
+     * Sets start
      *
-     * @param string|null $status status
+     * @param int|null $start start
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setStart($start)
     {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
+        $this->container['start'] = $start;
 
         return $this;
     }
 
     /**
-     * Gets error_msg
+     * Gets results
      *
-     * @return string|null
+     * @return \LiltConnectorSDK\Model\JobResponse[]|null
      */
-    public function getErrorMsg()
+    public function getResults()
     {
-        return $this->container['error_msg'];
+        return $this->container['results'];
     }
 
     /**
-     * Sets error_msg
+     * Sets results
      *
-     * @param string|null $error_msg error_msg
+     * @param \LiltConnectorSDK\Model\JobResponse[]|null $results results
      *
      * @return self
      */
-    public function setErrorMsg($error_msg)
+    public function setResults($results)
     {
-        $this->container['error_msg'] = $error_msg;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at updated_at
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->container['updated_at'] = $updated_at;
+        $this->container['results'] = $results;
 
         return $this;
     }

@@ -971,7 +971,7 @@ class JobsApi
      *
      * @throws \LiltConnectorSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \LiltConnectorSDK\Model\JobResponse
+     * @return \LiltConnectorSDK\Model\JobsResponse
      */
     public function servicesApiJobsGetJobs($limit = null, $start = null)
     {
@@ -989,7 +989,7 @@ class JobsApi
      *
      * @throws \LiltConnectorSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \LiltConnectorSDK\Model\JobResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \LiltConnectorSDK\Model\JobsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function servicesApiJobsGetJobsWithHttpInfo($limit = null, $start = null)
     {
@@ -1032,23 +1032,23 @@ class JobsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\LiltConnectorSDK\Model\JobResponse' === '\SplFileObject') {
+                    if ('\LiltConnectorSDK\Model\JobsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\LiltConnectorSDK\Model\JobResponse' !== 'string') {
+                        if ('\LiltConnectorSDK\Model\JobsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\LiltConnectorSDK\Model\JobResponse', []),
+                        ObjectSerializer::deserialize($content, '\LiltConnectorSDK\Model\JobsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\LiltConnectorSDK\Model\JobResponse';
+            $returnType = '\LiltConnectorSDK\Model\JobsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1069,7 +1069,7 @@ class JobsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\LiltConnectorSDK\Model\JobResponse',
+                        '\LiltConnectorSDK\Model\JobsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1113,7 +1113,7 @@ class JobsApi
      */
     public function servicesApiJobsGetJobsAsyncWithHttpInfo($limit = null, $start = null)
     {
-        $returnType = '\LiltConnectorSDK\Model\JobResponse';
+        $returnType = '\LiltConnectorSDK\Model\JobsResponse';
         $request = $this->servicesApiJobsGetJobsRequest($limit, $start);
 
         return $this->client
