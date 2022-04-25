@@ -26,6 +26,3 @@ lib/Model/SettingsResponse1.php
 lib/Model/TranslationResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/SettingsApiTest.php
-test/Model/SettingsResponse1Test.php
-test/Model/SettingsResponseTest.php

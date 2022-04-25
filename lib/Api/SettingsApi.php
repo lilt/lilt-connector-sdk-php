@@ -389,11 +389,12 @@ class SettingsApi
      *
      * @throws \LiltConnectorSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \LiltConnectorSDK\Model\SettingsResponse1
      */
     public function servicesApiSettingsUpdateSettings($settings_response1 = null)
     {
-        $this->servicesApiSettingsUpdateSettingsWithHttpInfo($settings_response1);
+        list($response) = $this->servicesApiSettingsUpdateSettingsWithHttpInfo($settings_response1);
+        return $response;
     }
 
     /**
@@ -405,7 +406,7 @@ class SettingsApi
      *
      * @throws \LiltConnectorSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \LiltConnectorSDK\Model\SettingsResponse1, HTTP status code, HTTP response headers (array of strings)
      */
     public function servicesApiSettingsUpdateSettingsWithHttpInfo($settings_response1 = null)
     {
@@ -446,10 +447,50 @@ class SettingsApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\LiltConnectorSDK\Model\SettingsResponse1' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LiltConnectorSDK\Model\SettingsResponse1' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LiltConnectorSDK\Model\SettingsResponse1', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\LiltConnectorSDK\Model\SettingsResponse1';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LiltConnectorSDK\Model\SettingsResponse1',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -487,14 +528,27 @@ class SettingsApi
      */
     public function servicesApiSettingsUpdateSettingsAsyncWithHttpInfo($settings_response1 = null)
     {
-        $returnType = '';
+        $returnType = '\LiltConnectorSDK\Model\SettingsResponse1';
         $request = $this->servicesApiSettingsUpdateSettingsRequest($settings_response1);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -537,11 +591,11 @@ class SettingsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
