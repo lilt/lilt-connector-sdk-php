@@ -108,8 +108,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**| the query limit | [optional]
- **start** | **int**| where to start | [optional]
+ **limit** | **int**| the query limit | [optional] [default to 25]
+ **start** | **int**| where to start | [optional] [default to 0]
  **job_id** | **int**| The Job ID. | [optional]
 
 ### Return type

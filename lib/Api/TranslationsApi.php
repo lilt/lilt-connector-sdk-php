@@ -404,15 +404,15 @@ class TranslationsApi
      *
      * Retrieve a list of Translations.
      *
-     * @param  int $limit the query limit (optional)
-     * @param  int $start where to start (optional)
+     * @param  int $limit the query limit (optional, default to 25)
+     * @param  int $start where to start (optional, default to 0)
      * @param  int $job_id The Job ID. (optional)
      *
      * @throws \LiltConnectorSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \LiltConnectorSDK\Model\JobResponse1
      */
-    public function servicesApiDeliveriesGetDeliveriesByJobId($limit = null, $start = null, $job_id = null)
+    public function servicesApiDeliveriesGetDeliveriesByJobId($limit = 25, $start = 0, $job_id = null)
     {
         list($response) = $this->servicesApiDeliveriesGetDeliveriesByJobIdWithHttpInfo($limit, $start, $job_id);
         return $response;
@@ -423,15 +423,15 @@ class TranslationsApi
      *
      * Retrieve a list of Translations.
      *
-     * @param  int $limit the query limit (optional)
-     * @param  int $start where to start (optional)
+     * @param  int $limit the query limit (optional, default to 25)
+     * @param  int $start where to start (optional, default to 0)
      * @param  int $job_id The Job ID. (optional)
      *
      * @throws \LiltConnectorSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \LiltConnectorSDK\Model\JobResponse1, HTTP status code, HTTP response headers (array of strings)
      */
-    public function servicesApiDeliveriesGetDeliveriesByJobIdWithHttpInfo($limit = null, $start = null, $job_id = null)
+    public function servicesApiDeliveriesGetDeliveriesByJobIdWithHttpInfo($limit = 25, $start = 0, $job_id = null)
     {
         $request = $this->servicesApiDeliveriesGetDeliveriesByJobIdRequest($limit, $start, $job_id);
 
@@ -524,14 +524,14 @@ class TranslationsApi
      *
      * Retrieve a list of Translations.
      *
-     * @param  int $limit the query limit (optional)
-     * @param  int $start where to start (optional)
+     * @param  int $limit the query limit (optional, default to 25)
+     * @param  int $start where to start (optional, default to 0)
      * @param  int $job_id The Job ID. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function servicesApiDeliveriesGetDeliveriesByJobIdAsync($limit = null, $start = null, $job_id = null)
+    public function servicesApiDeliveriesGetDeliveriesByJobIdAsync($limit = 25, $start = 0, $job_id = null)
     {
         return $this->servicesApiDeliveriesGetDeliveriesByJobIdAsyncWithHttpInfo($limit, $start, $job_id)
             ->then(
@@ -546,14 +546,14 @@ class TranslationsApi
      *
      * Retrieve a list of Translations.
      *
-     * @param  int $limit the query limit (optional)
-     * @param  int $start where to start (optional)
+     * @param  int $limit the query limit (optional, default to 25)
+     * @param  int $start where to start (optional, default to 0)
      * @param  int $job_id The Job ID. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function servicesApiDeliveriesGetDeliveriesByJobIdAsyncWithHttpInfo($limit = null, $start = null, $job_id = null)
+    public function servicesApiDeliveriesGetDeliveriesByJobIdAsyncWithHttpInfo($limit = 25, $start = 0, $job_id = null)
     {
         $returnType = '\LiltConnectorSDK\Model\JobResponse1';
         $request = $this->servicesApiDeliveriesGetDeliveriesByJobIdRequest($limit, $start, $job_id);
@@ -597,14 +597,14 @@ class TranslationsApi
     /**
      * Create request for operation 'servicesApiDeliveriesGetDeliveriesByJobId'
      *
-     * @param  int $limit the query limit (optional)
-     * @param  int $start where to start (optional)
+     * @param  int $limit the query limit (optional, default to 25)
+     * @param  int $start where to start (optional, default to 0)
      * @param  int $job_id The Job ID. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function servicesApiDeliveriesGetDeliveriesByJobIdRequest($limit = null, $start = null, $job_id = null)
+    public function servicesApiDeliveriesGetDeliveriesByJobIdRequest($limit = 25, $start = 0, $job_id = null)
     {
 
         $resourcePath = '/translations';
