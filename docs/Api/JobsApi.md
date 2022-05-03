@@ -15,7 +15,7 @@ Method | HTTP request | Description
 ## `servicesApiJobsAddFile()`
 
 ```php
-servicesApiJobsAddFile($id, $name, $trglang, $due, $body)
+servicesApiJobsAddFile($id, $name, $srclang, $trglang, $due, $body)
 ```
 
 Add a file to a Job.
@@ -41,12 +41,13 @@ $apiInstance = new LiltConnectorSDK\Api\JobsApi(
 );
 $id = 12345; // int | The Job ID.
 $name = sample.txt; // string | The file name.
+$srclang = 'en-US'; // string | The source language.
 $trglang = array('trglang_example'); // string[] | The target language. Many target languages can be added to a source file.
 $due = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The due date for the file.
 $body = "/path/to/file.txt"; // \SplFileObject
 
 try {
-    $apiInstance->servicesApiJobsAddFile($id, $name, $trglang, $due, $body);
+    $apiInstance->servicesApiJobsAddFile($id, $name, $srclang, $trglang, $due, $body);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->servicesApiJobsAddFile: ', $e->getMessage(), PHP_EOL;
 }
@@ -58,6 +59,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The Job ID. |
  **name** | **string**| The file name. |
+ **srclang** | **string**| The source language. | [optional] [default to &#39;en-US&#39;]
  **trglang** | [**string[]**](../Model/string.md)| The target language. Many target languages can be added to a source file. | [optional]
  **due** | **\DateTime**| The due date for the file. | [optional]
  **body** | **\SplFileObject****\SplFileObject**|  | [optional]
@@ -237,8 +239,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**| the query limit | [optional]
- **start** | **int**| where to start | [optional]
+ **limit** | **int**| the query limit | [optional] [default to 25]
+ **start** | **int**| where to start | [optional] [default to 0]
 
 ### Return type
 
