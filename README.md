@@ -5,7 +5,7 @@ Plugin API is intented to be used by developers who wish to build
 integrations into their desired systems. The purpose of this API is to
 enable content transfer and status monitoring for localization projects.
 
-- Read more about the conecpts and workflows in the
+- Read more about the concepts and workflows in the
   [user guide](/docs/api/v1.0).
 - Test the API interactively via [Swagger UI](/api/v1.0/ui).
 
@@ -69,12 +69,13 @@ $apiInstance = new LiltConnectorSDK\Api\JobsApi(
 );
 $id = 12345; // int | The Job ID.
 $name = sample.txt; // string | The file name.
+$srclang = 'en-US'; // string | The source language.
 $trglang = array('trglang_example'); // string[] | The target language. Many target languages can be added to a source file.
 $due = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The due date for the file.
 $body = "/path/to/file.txt"; // \SplFileObject
 
 try {
-    $apiInstance->servicesApiJobsAddFile($id, $name, $trglang, $due, $body);
+    $apiInstance->servicesApiJobsAddFile($id, $name, $srclang, $trglang, $due, $body);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->servicesApiJobsAddFile: ', $e->getMessage(), PHP_EOL;
 }
