@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
 *JobsApi* | [**servicesApiJobsGetJobs**](docs/Api/JobsApi.md#servicesapijobsgetjobs) | **GET** /jobs | Retrieve a list of Connector Jobs.
 *JobsApi* | [**servicesApiJobsStartJob**](docs/Api/JobsApi.md#servicesapijobsstartjob) | **POST** /jobs/{id}/start | Start a Job.
 *JobsApi* | [**servicesApiJobsSyncJob**](docs/Api/JobsApi.md#servicesapijobssyncjob) | **POST** /jobs/{id}/sync | Start a Sync.
+*RegistrationApi* | [**servicesApiRegistrationRegister**](docs/Api/RegistrationApi.md#servicesapiregistrationregister) | **POST** /register | Register a new connector installation.
 *SettingsApi* | [**servicesApiSettingsGetSettings**](docs/Api/SettingsApi.md#servicesapisettingsgetsettings) | **GET** /settings | Retrieve the settings.
 *SettingsApi* | [**servicesApiSettingsUpdateSettings**](docs/Api/SettingsApi.md#servicesapisettingsupdatesettings) | **PUT** /settings | Update the settings.
 *TranslationsApi* | [**servicesApiDeliveriesDownloadDelivery**](docs/Api/TranslationsApi.md#servicesapideliveriesdownloaddelivery) | **GET** /translations/{id}/download | Download a Translation.
@@ -105,6 +106,8 @@ Class | Method | HTTP request | Description
 - [JobResponse](docs/Model/JobResponse.md)
 - [JobResponse1](docs/Model/JobResponse1.md)
 - [JobsResponse](docs/Model/JobsResponse.md)
+- [RegistrationRequest](docs/Model/RegistrationRequest.md)
+- [RegistrationResponse](docs/Model/RegistrationResponse.md)
 - [SettingsResponse](docs/Model/SettingsResponse.md)
 - [SettingsResponse1](docs/Model/SettingsResponse1.md)
 - [TranslationResponse](docs/Model/TranslationResponse.md)
