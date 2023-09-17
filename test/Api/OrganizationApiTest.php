@@ -1,6 +1,6 @@
 <?php
 /**
- * TranslationsApiTest
+ * OrganizationApiTest
  * PHP version 7.4
  *
  * @category Class
@@ -33,14 +33,14 @@ use \LiltConnectorSDK\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TranslationsApiTest Class Doc Comment
+ * OrganizationApiTest Class Doc Comment
  *
  * @category Class
  * @package  LiltConnectorSDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class TranslationsApiTest extends TestCase
+class OrganizationApiTest extends TestCase
 {
 
     /**
@@ -72,72 +72,12 @@ class TranslationsApiTest extends TestCase
     }
 
     /**
-     * Test case for servicesApiDeliveriesCompleteDelivery
+     * Test case for servicesApiOrganizationGetOrganizationRecord
      *
-     * Complete a Translation..
-     *
-     */
-    public function testServicesApiDeliveriesCompleteDelivery()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for servicesApiDeliveriesDownloadDelivery
-     *
-     * Download a Translation..
+     * Get information about the organization based on lilt_token.
      *
      */
-    public function testServicesApiDeliveriesDownloadDelivery()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for servicesApiDeliveriesDownloadDeliverySource
-     *
-     * Download a Translation Source..
-     *
-     */
-    public function testServicesApiDeliveriesDownloadDeliverySource()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for servicesApiDeliveriesGetDeliveriesByJobId
-     *
-     * Retrieve a list of Translations..
-     *
-     */
-    public function testServicesApiDeliveriesGetDeliveriesByJobId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for servicesApiDeliveriesGetDeliveryById
-     *
-     * Retrieve a Translation..
-     *
-     */
-    public function testServicesApiDeliveriesGetDeliveryById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for servicesApiDeliveriesUpdateDelivery
-     *
-     * Update a Translation..
-     *
-     */
-    public function testServicesApiDeliveriesUpdateDelivery()
+    public function testServicesApiOrganizationGetOrganizationRecord()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -1,6 +1,6 @@
 <?php
 /**
- * TranslationResponse
+ * ErrorResponse
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \LiltConnectorSDK\ObjectSerializer;
 
 /**
- * TranslationResponse Class Doc Comment
+ * ErrorResponse Class Doc Comment
  *
  * @category Class
  * @package  LiltConnectorSDK
@@ -40,7 +40,7 @@ use \LiltConnectorSDK\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'translation_response';
+    protected static $openAPIModelName = 'error_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +57,9 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'name' => 'string',
-        'status' => 'string',
-        'trg_lang' => 'string',
-        'trg_locale' => 'string',
-        'error_msg' => 'string',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime'
+        'error' => 'string',
+        'message' => 'string',
+        'status' => 'int'
     ];
 
     /**
@@ -75,14 +70,9 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'status' => null,
-        'trg_lang' => null,
-        'trg_locale' => null,
-        'error_msg' => null,
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time'
+        'error' => null,
+        'message' => null,
+        'status' => null
     ];
 
     /**
@@ -91,14 +81,9 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'name' => false,
-		'status' => false,
-		'trg_lang' => false,
-		'trg_locale' => false,
-		'error_msg' => false,
-		'created_at' => false,
-		'updated_at' => false
+        'error' => false,
+		'message' => false,
+		'status' => false
     ];
 
     /**
@@ -187,14 +172,9 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'status' => 'status',
-        'trg_lang' => 'trgLang',
-        'trg_locale' => 'trgLocale',
-        'error_msg' => 'errorMsg',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt'
+        'error' => 'error',
+        'message' => 'message',
+        'status' => 'status'
     ];
 
     /**
@@ -203,14 +183,9 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'status' => 'setStatus',
-        'trg_lang' => 'setTrgLang',
-        'trg_locale' => 'setTrgLocale',
-        'error_msg' => 'setErrorMsg',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'error' => 'setError',
+        'message' => 'setMessage',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -219,14 +194,9 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'status' => 'getStatus',
-        'trg_lang' => 'getTrgLang',
-        'trg_locale' => 'getTrgLocale',
-        'error_msg' => 'getErrorMsg',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'error' => 'getError',
+        'message' => 'getMessage',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -270,31 +240,6 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
-    public const STATUS_IMPORT_COMPLETE = 'import_complete';
-    public const STATUS_IMPORT_FAILED = 'import_failed';
-    public const STATUS_EXPORT_COMPLETE = 'export_complete';
-    public const STATUS_EXPORT_FAILED = 'export_failed';
-    public const STATUS_MT_COMPLETE = 'mt_complete';
-    public const STATUS_MT_FAILED = 'mt_failed';
-    public const STATUS_PLUGIN_COMPLETE = 'plugin_complete';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_IMPORT_COMPLETE,
-            self::STATUS_IMPORT_FAILED,
-            self::STATUS_EXPORT_COMPLETE,
-            self::STATUS_EXPORT_FAILED,
-            self::STATUS_MT_COMPLETE,
-            self::STATUS_MT_FAILED,
-            self::STATUS_PLUGIN_COMPLETE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -311,14 +256,9 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('error', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('trg_lang', $data ?? [], null);
-        $this->setIfExists('trg_locale', $data ?? [], null);
-        $this->setIfExists('error_msg', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
     }
 
     /**
@@ -348,15 +288,6 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'status', must be one of '%s'",
-                $this->container['status'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -373,55 +304,55 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets id
+     * Gets error
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getId()
+    public function getError()
     {
-        return $this->container['id'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets id
+     * Sets error
      *
-     * @param int|null $id id
+     * @param string|null $error error
      *
      * @return self
      */
-    public function setId($id)
+    public function setError($error)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($error)) {
+            throw new \InvalidArgumentException('non-nullable error cannot be null');
         }
-        $this->container['id'] = $id;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets message
      *
      * @return string|null
      */
-    public function getName()
+    public function getMessage()
     {
-        return $this->container['name'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets name
+     * Sets message
      *
-     * @param string|null $name name
+     * @param string|null $message message
      *
      * @return self
      */
-    public function setName($name)
+    public function setMessage($message)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['message'] = $message;
 
         return $this;
     }
@@ -429,7 +360,7 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets status
      *
-     * @return string|null
+     * @return int|null
      */
     public function getStatus()
     {
@@ -439,7 +370,7 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets status
      *
-     * @param string|null $status This value tracks the status of the delivery.
+     * @param int|null $status status
      *
      * @return self
      */
@@ -448,152 +379,7 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         if (is_null($status)) {
             throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets trg_lang
-     *
-     * @return string|null
-     */
-    public function getTrgLang()
-    {
-        return $this->container['trg_lang'];
-    }
-
-    /**
-     * Sets trg_lang
-     *
-     * @param string|null $trg_lang trg_lang
-     *
-     * @return self
-     */
-    public function setTrgLang($trg_lang)
-    {
-        if (is_null($trg_lang)) {
-            throw new \InvalidArgumentException('non-nullable trg_lang cannot be null');
-        }
-        $this->container['trg_lang'] = $trg_lang;
-
-        return $this;
-    }
-
-    /**
-     * Gets trg_locale
-     *
-     * @return string|null
-     */
-    public function getTrgLocale()
-    {
-        return $this->container['trg_locale'];
-    }
-
-    /**
-     * Sets trg_locale
-     *
-     * @param string|null $trg_locale trg_locale
-     *
-     * @return self
-     */
-    public function setTrgLocale($trg_locale)
-    {
-        if (is_null($trg_locale)) {
-            throw new \InvalidArgumentException('non-nullable trg_locale cannot be null');
-        }
-        $this->container['trg_locale'] = $trg_locale;
-
-        return $this;
-    }
-
-    /**
-     * Gets error_msg
-     *
-     * @return string|null
-     */
-    public function getErrorMsg()
-    {
-        return $this->container['error_msg'];
-    }
-
-    /**
-     * Sets error_msg
-     *
-     * @param string|null $error_msg error_msg
-     *
-     * @return self
-     */
-    public function setErrorMsg($error_msg)
-    {
-        if (is_null($error_msg)) {
-            throw new \InvalidArgumentException('non-nullable error_msg cannot be null');
-        }
-        $this->container['error_msg'] = $error_msg;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at updated_at
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
-        }
-        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

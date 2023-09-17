@@ -1,21 +1,21 @@
 # LiltConnectorSDK\RegistrationApi
 
-All URIs are relative to https://connectors-admin.lilt.com/api/v1.0.
+All URIs are relative to https://connectors-admin.lilt.com/api/v1.0, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**servicesApiRegistrationRegister()**](RegistrationApi.md#servicesApiRegistrationRegister) | **POST** /register | Register a new connector installation.
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**servicesApiRegistrationRegisterCreditsBasedOrganization()**](RegistrationApi.md#servicesApiRegistrationRegisterCreditsBasedOrganization) | **POST** /register | Register a new Connectors Organization |
 
 
-## `servicesApiRegistrationRegister()`
+## `servicesApiRegistrationRegisterCreditsBasedOrganization()`
 
 ```php
-servicesApiRegistrationRegister($registration_request): \LiltConnectorSDK\Model\RegistrationResponse
+servicesApiRegistrationRegisterCreditsBasedOrganization($new_organization_options)
 ```
 
-Register a new connector installation.
+Register a new Connectors Organization
 
-This endpoint is used to register a new connector installation.
+This endpoint is used to register a connector organization in preparation to handle credits management.
 
 ### Example
 
@@ -30,25 +30,24 @@ $apiInstance = new LiltConnectorSDK\Api\RegistrationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$registration_request = new \LiltConnectorSDK\Model\RegistrationRequest(); // \LiltConnectorSDK\Model\RegistrationRequest
+$new_organization_options = new \LiltConnectorSDK\Model\NewOrganizationOptions(); // \LiltConnectorSDK\Model\NewOrganizationOptions
 
 try {
-    $result = $apiInstance->servicesApiRegistrationRegister($registration_request);
-    print_r($result);
+    $apiInstance->servicesApiRegistrationRegisterCreditsBasedOrganization($new_organization_options);
 } catch (Exception $e) {
-    echo 'Exception when calling RegistrationApi->servicesApiRegistrationRegister: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling RegistrationApi->servicesApiRegistrationRegisterCreditsBasedOrganization: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **registration_request** | [**\LiltConnectorSDK\Model\RegistrationRequest**](../Model/RegistrationRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **new_organization_options** | [**\LiltConnectorSDK\Model\NewOrganizationOptions**](../Model/NewOrganizationOptions.md)|  | [optional] |
 
 ### Return type
 
-[**\LiltConnectorSDK\Model\RegistrationResponse**](../Model/RegistrationResponse.md)
+void (empty response body)
 
 ### Authorization
 

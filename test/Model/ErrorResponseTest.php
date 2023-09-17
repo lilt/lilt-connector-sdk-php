@@ -1,6 +1,6 @@
 <?php
 /**
- * TranslationResponseTest
+ * ErrorResponseTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace LiltConnectorSDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TranslationResponseTest Class Doc Comment
+ * ErrorResponseTest Class Doc Comment
  *
  * @category    Class
- * @description TranslationResponse
+ * @description ErrorResponse
  * @package     LiltConnectorSDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TranslationResponseTest extends TestCase
+class ErrorResponseTest extends TestCase
 {
 
     /**
@@ -71,27 +71,27 @@ class TranslationResponseTest extends TestCase
     }
 
     /**
-     * Test "TranslationResponse"
+     * Test "ErrorResponse"
      */
-    public function testTranslationResponse()
+    public function testErrorResponse()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "error"
      */
-    public function testPropertyId()
+    public function testPropertyError()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "message"
      */
-    public function testPropertyName()
+    public function testPropertyMessage()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -101,51 +101,6 @@ class TranslationResponseTest extends TestCase
      * Test attribute "status"
      */
     public function testPropertyStatus()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "trg_lang"
-     */
-    public function testPropertyTrgLang()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "trg_locale"
-     */
-    public function testPropertyTrgLocale()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "error_msg"
-     */
-    public function testPropertyErrorMsg()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "created_at"
-     */
-    public function testPropertyCreatedAt()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "updated_at"
-     */
-    public function testPropertyUpdatedAt()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

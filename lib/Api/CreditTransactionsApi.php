@@ -1,6 +1,6 @@
 <?php
 /**
- * RegistrationApi
+ * CreditTransactionsApi
  * PHP version 7.4
  *
  * @category Class
@@ -40,14 +40,14 @@ use LiltConnectorSDK\HeaderSelector;
 use LiltConnectorSDK\ObjectSerializer;
 
 /**
- * RegistrationApi Class Doc Comment
+ * CreditTransactionsApi Class Doc Comment
  *
  * @category Class
  * @package  LiltConnectorSDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class RegistrationApi
+class CreditTransactionsApi
 {
     /**
      * @var ClientInterface
@@ -71,7 +71,7 @@ class RegistrationApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'servicesApiRegistrationRegisterCreditsBasedOrganization' => [
+        'servicesApiCreditTransactionCreateCreditTransaction' => [
             'application/json',
         ],
     ];
@@ -123,37 +123,37 @@ class RegistrationApi
     }
 
     /**
-     * Operation servicesApiRegistrationRegisterCreditsBasedOrganization
+     * Operation servicesApiCreditTransactionCreateCreditTransaction
      *
-     * Register a new Connectors Organization
+     * Create a credit transaction. Request is expected to contain credits information encoded in jwt_token payload. Request encoded should have info for instant_translation_credits_change value, verified_translation_credits_change value, source_metadata which contains any identifying information to attach to the transaction, email for the user starting the transaction, and optionally lilt_token for the connector configuration.
      *
-     * @param  \LiltConnectorSDK\Model\NewOrganizationOptions $new_organization_options new_organization_options (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['servicesApiRegistrationRegisterCreditsBasedOrganization'] to see the possible values for this operation
+     * @param  \LiltConnectorSDK\Model\ServicesApiCreditTransactionCreateCreditTransactionRequest $services_api_credit_transaction_create_credit_transaction_request services_api_credit_transaction_create_credit_transaction_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['servicesApiCreditTransactionCreateCreditTransaction'] to see the possible values for this operation
      *
      * @throws \LiltConnectorSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function servicesApiRegistrationRegisterCreditsBasedOrganization($new_organization_options = null, string $contentType = self::contentTypes['servicesApiRegistrationRegisterCreditsBasedOrganization'][0])
+    public function servicesApiCreditTransactionCreateCreditTransaction($services_api_credit_transaction_create_credit_transaction_request = null, string $contentType = self::contentTypes['servicesApiCreditTransactionCreateCreditTransaction'][0])
     {
-        $this->servicesApiRegistrationRegisterCreditsBasedOrganizationWithHttpInfo($new_organization_options, $contentType);
+        $this->servicesApiCreditTransactionCreateCreditTransactionWithHttpInfo($services_api_credit_transaction_create_credit_transaction_request, $contentType);
     }
 
     /**
-     * Operation servicesApiRegistrationRegisterCreditsBasedOrganizationWithHttpInfo
+     * Operation servicesApiCreditTransactionCreateCreditTransactionWithHttpInfo
      *
-     * Register a new Connectors Organization
+     * Create a credit transaction. Request is expected to contain credits information encoded in jwt_token payload. Request encoded should have info for instant_translation_credits_change value, verified_translation_credits_change value, source_metadata which contains any identifying information to attach to the transaction, email for the user starting the transaction, and optionally lilt_token for the connector configuration.
      *
-     * @param  \LiltConnectorSDK\Model\NewOrganizationOptions $new_organization_options (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['servicesApiRegistrationRegisterCreditsBasedOrganization'] to see the possible values for this operation
+     * @param  \LiltConnectorSDK\Model\ServicesApiCreditTransactionCreateCreditTransactionRequest $services_api_credit_transaction_create_credit_transaction_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['servicesApiCreditTransactionCreateCreditTransaction'] to see the possible values for this operation
      *
      * @throws \LiltConnectorSDK\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function servicesApiRegistrationRegisterCreditsBasedOrganizationWithHttpInfo($new_organization_options = null, string $contentType = self::contentTypes['servicesApiRegistrationRegisterCreditsBasedOrganization'][0])
+    public function servicesApiCreditTransactionCreateCreditTransactionWithHttpInfo($services_api_credit_transaction_create_credit_transaction_request = null, string $contentType = self::contentTypes['servicesApiCreditTransactionCreateCreditTransaction'][0])
     {
-        $request = $this->servicesApiRegistrationRegisterCreditsBasedOrganizationRequest($new_organization_options, $contentType);
+        $request = $this->servicesApiCreditTransactionCreateCreditTransactionRequest($services_api_credit_transaction_create_credit_transaction_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -202,6 +202,22 @@ class RegistrationApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LiltConnectorSDK\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LiltConnectorSDK\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -216,19 +232,19 @@ class RegistrationApi
     }
 
     /**
-     * Operation servicesApiRegistrationRegisterCreditsBasedOrganizationAsync
+     * Operation servicesApiCreditTransactionCreateCreditTransactionAsync
      *
-     * Register a new Connectors Organization
+     * Create a credit transaction. Request is expected to contain credits information encoded in jwt_token payload. Request encoded should have info for instant_translation_credits_change value, verified_translation_credits_change value, source_metadata which contains any identifying information to attach to the transaction, email for the user starting the transaction, and optionally lilt_token for the connector configuration.
      *
-     * @param  \LiltConnectorSDK\Model\NewOrganizationOptions $new_organization_options (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['servicesApiRegistrationRegisterCreditsBasedOrganization'] to see the possible values for this operation
+     * @param  \LiltConnectorSDK\Model\ServicesApiCreditTransactionCreateCreditTransactionRequest $services_api_credit_transaction_create_credit_transaction_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['servicesApiCreditTransactionCreateCreditTransaction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function servicesApiRegistrationRegisterCreditsBasedOrganizationAsync($new_organization_options = null, string $contentType = self::contentTypes['servicesApiRegistrationRegisterCreditsBasedOrganization'][0])
+    public function servicesApiCreditTransactionCreateCreditTransactionAsync($services_api_credit_transaction_create_credit_transaction_request = null, string $contentType = self::contentTypes['servicesApiCreditTransactionCreateCreditTransaction'][0])
     {
-        return $this->servicesApiRegistrationRegisterCreditsBasedOrganizationAsyncWithHttpInfo($new_organization_options, $contentType)
+        return $this->servicesApiCreditTransactionCreateCreditTransactionAsyncWithHttpInfo($services_api_credit_transaction_create_credit_transaction_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -237,20 +253,20 @@ class RegistrationApi
     }
 
     /**
-     * Operation servicesApiRegistrationRegisterCreditsBasedOrganizationAsyncWithHttpInfo
+     * Operation servicesApiCreditTransactionCreateCreditTransactionAsyncWithHttpInfo
      *
-     * Register a new Connectors Organization
+     * Create a credit transaction. Request is expected to contain credits information encoded in jwt_token payload. Request encoded should have info for instant_translation_credits_change value, verified_translation_credits_change value, source_metadata which contains any identifying information to attach to the transaction, email for the user starting the transaction, and optionally lilt_token for the connector configuration.
      *
-     * @param  \LiltConnectorSDK\Model\NewOrganizationOptions $new_organization_options (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['servicesApiRegistrationRegisterCreditsBasedOrganization'] to see the possible values for this operation
+     * @param  \LiltConnectorSDK\Model\ServicesApiCreditTransactionCreateCreditTransactionRequest $services_api_credit_transaction_create_credit_transaction_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['servicesApiCreditTransactionCreateCreditTransaction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function servicesApiRegistrationRegisterCreditsBasedOrganizationAsyncWithHttpInfo($new_organization_options = null, string $contentType = self::contentTypes['servicesApiRegistrationRegisterCreditsBasedOrganization'][0])
+    public function servicesApiCreditTransactionCreateCreditTransactionAsyncWithHttpInfo($services_api_credit_transaction_create_credit_transaction_request = null, string $contentType = self::contentTypes['servicesApiCreditTransactionCreateCreditTransaction'][0])
     {
         $returnType = '';
-        $request = $this->servicesApiRegistrationRegisterCreditsBasedOrganizationRequest($new_organization_options, $contentType);
+        $request = $this->servicesApiCreditTransactionCreateCreditTransactionRequest($services_api_credit_transaction_create_credit_transaction_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -276,20 +292,20 @@ class RegistrationApi
     }
 
     /**
-     * Create request for operation 'servicesApiRegistrationRegisterCreditsBasedOrganization'
+     * Create request for operation 'servicesApiCreditTransactionCreateCreditTransaction'
      *
-     * @param  \LiltConnectorSDK\Model\NewOrganizationOptions $new_organization_options (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['servicesApiRegistrationRegisterCreditsBasedOrganization'] to see the possible values for this operation
+     * @param  \LiltConnectorSDK\Model\ServicesApiCreditTransactionCreateCreditTransactionRequest $services_api_credit_transaction_create_credit_transaction_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['servicesApiCreditTransactionCreateCreditTransaction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function servicesApiRegistrationRegisterCreditsBasedOrganizationRequest($new_organization_options = null, string $contentType = self::contentTypes['servicesApiRegistrationRegisterCreditsBasedOrganization'][0])
+    public function servicesApiCreditTransactionCreateCreditTransactionRequest($services_api_credit_transaction_create_credit_transaction_request = null, string $contentType = self::contentTypes['servicesApiCreditTransactionCreateCreditTransaction'][0])
     {
 
 
 
-        $resourcePath = '/register';
+        $resourcePath = '/credit-transaction';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -307,12 +323,12 @@ class RegistrationApi
         );
 
         // for model (json/xml)
-        if (isset($new_organization_options)) {
+        if (isset($services_api_credit_transaction_create_credit_transaction_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($new_organization_options));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($services_api_credit_transaction_create_credit_transaction_request));
             } else {
-                $httpBody = $new_organization_options;
+                $httpBody = $services_api_credit_transaction_create_credit_transaction_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

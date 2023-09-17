@@ -1,6 +1,6 @@
 <?php
 /**
- * TranslationResponse
+ * NewJobOptions
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \LiltConnectorSDK\ObjectSerializer;
 
 /**
- * TranslationResponse Class Doc Comment
+ * NewJobOptions Class Doc Comment
  *
  * @category Class
  * @package  LiltConnectorSDK
@@ -40,7 +40,7 @@ use \LiltConnectorSDK\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class NewJobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'translation_response';
+    protected static $openAPIModelName = 'new_job_options';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +57,13 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'name' => 'string',
-        'status' => 'string',
-        'trg_lang' => 'string',
-        'trg_locale' => 'string',
-        'error_msg' => 'string',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime'
+        'project_prefix' => 'string',
+        'project_name_template' => 'string',
+        'lilt_translation_workflow' => 'string',
+        'lilt_default_due_date' => 'string',
+        'lilt_target_languages' => 'string[]',
+        'handle_credit_transactions' => 'bool',
+        'source_word_count' => 'float'
     ];
 
     /**
@@ -75,14 +74,13 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'status' => null,
-        'trg_lang' => null,
-        'trg_locale' => null,
-        'error_msg' => null,
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time'
+        'project_prefix' => null,
+        'project_name_template' => null,
+        'lilt_translation_workflow' => null,
+        'lilt_default_due_date' => null,
+        'lilt_target_languages' => null,
+        'handle_credit_transactions' => null,
+        'source_word_count' => null
     ];
 
     /**
@@ -91,14 +89,13 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'name' => false,
-		'status' => false,
-		'trg_lang' => false,
-		'trg_locale' => false,
-		'error_msg' => false,
-		'created_at' => false,
-		'updated_at' => false
+        'project_prefix' => false,
+		'project_name_template' => false,
+		'lilt_translation_workflow' => false,
+		'lilt_default_due_date' => false,
+		'lilt_target_languages' => false,
+		'handle_credit_transactions' => false,
+		'source_word_count' => false
     ];
 
     /**
@@ -187,14 +184,13 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'status' => 'status',
-        'trg_lang' => 'trgLang',
-        'trg_locale' => 'trgLocale',
-        'error_msg' => 'errorMsg',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt'
+        'project_prefix' => 'project_prefix',
+        'project_name_template' => 'project_name_template',
+        'lilt_translation_workflow' => 'lilt_translation_workflow',
+        'lilt_default_due_date' => 'lilt_default_due_date',
+        'lilt_target_languages' => 'lilt_target_languages',
+        'handle_credit_transactions' => 'handle_credit_transactions',
+        'source_word_count' => 'source_word_count'
     ];
 
     /**
@@ -203,14 +199,13 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'status' => 'setStatus',
-        'trg_lang' => 'setTrgLang',
-        'trg_locale' => 'setTrgLocale',
-        'error_msg' => 'setErrorMsg',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'project_prefix' => 'setProjectPrefix',
+        'project_name_template' => 'setProjectNameTemplate',
+        'lilt_translation_workflow' => 'setLiltTranslationWorkflow',
+        'lilt_default_due_date' => 'setLiltDefaultDueDate',
+        'lilt_target_languages' => 'setLiltTargetLanguages',
+        'handle_credit_transactions' => 'setHandleCreditTransactions',
+        'source_word_count' => 'setSourceWordCount'
     ];
 
     /**
@@ -219,14 +214,13 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'status' => 'getStatus',
-        'trg_lang' => 'getTrgLang',
-        'trg_locale' => 'getTrgLocale',
-        'error_msg' => 'getErrorMsg',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'project_prefix' => 'getProjectPrefix',
+        'project_name_template' => 'getProjectNameTemplate',
+        'lilt_translation_workflow' => 'getLiltTranslationWorkflow',
+        'lilt_default_due_date' => 'getLiltDefaultDueDate',
+        'lilt_target_languages' => 'getLiltTargetLanguages',
+        'handle_credit_transactions' => 'getHandleCreditTransactions',
+        'source_word_count' => 'getSourceWordCount'
     ];
 
     /**
@@ -270,29 +264,19 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
-    public const STATUS_IMPORT_COMPLETE = 'import_complete';
-    public const STATUS_IMPORT_FAILED = 'import_failed';
-    public const STATUS_EXPORT_COMPLETE = 'export_complete';
-    public const STATUS_EXPORT_FAILED = 'export_failed';
-    public const STATUS_MT_COMPLETE = 'mt_complete';
-    public const STATUS_MT_FAILED = 'mt_failed';
-    public const STATUS_PLUGIN_COMPLETE = 'plugin_complete';
+    public const LILT_TRANSLATION_WORKFLOW_INSTANT = 'INSTANT';
+    public const LILT_TRANSLATION_WORKFLOW_VERIFIED = 'VERIFIED';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getStatusAllowableValues()
+    public function getLiltTranslationWorkflowAllowableValues()
     {
         return [
-            self::STATUS_IMPORT_COMPLETE,
-            self::STATUS_IMPORT_FAILED,
-            self::STATUS_EXPORT_COMPLETE,
-            self::STATUS_EXPORT_FAILED,
-            self::STATUS_MT_COMPLETE,
-            self::STATUS_MT_FAILED,
-            self::STATUS_PLUGIN_COMPLETE,
+            self::LILT_TRANSLATION_WORKFLOW_INSTANT,
+            self::LILT_TRANSLATION_WORKFLOW_VERIFIED,
         ];
     }
 
@@ -311,14 +295,13 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('trg_lang', $data ?? [], null);
-        $this->setIfExists('trg_locale', $data ?? [], null);
-        $this->setIfExists('error_msg', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('project_prefix', $data ?? [], null);
+        $this->setIfExists('project_name_template', $data ?? [], null);
+        $this->setIfExists('lilt_translation_workflow', $data ?? [], null);
+        $this->setIfExists('lilt_default_due_date', $data ?? [], null);
+        $this->setIfExists('lilt_target_languages', $data ?? [], null);
+        $this->setIfExists('handle_credit_transactions', $data ?? [], false);
+        $this->setIfExists('source_word_count', $data ?? [], null);
     }
 
     /**
@@ -348,11 +331,11 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+        $allowedValues = $this->getLiltTranslationWorkflowAllowableValues();
+        if (!is_null($this->container['lilt_translation_workflow']) && !in_array($this->container['lilt_translation_workflow'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'status', must be one of '%s'",
-                $this->container['status'],
+                "invalid value '%s' for 'lilt_translation_workflow', must be one of '%s'",
+                $this->container['lilt_translation_workflow'],
                 implode("', '", $allowedValues)
             );
         }
@@ -373,227 +356,200 @@ class TranslationResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets id
+     * Gets project_prefix
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getId()
+    public function getProjectPrefix()
     {
-        return $this->container['id'];
+        return $this->container['project_prefix'];
     }
 
     /**
-     * Sets id
+     * Sets project_prefix
      *
-     * @param int|null $id id
+     * @param string|null $project_prefix A string value to include in the Project name.
      *
      * @return self
      */
-    public function setId($id)
+    public function setProjectPrefix($project_prefix)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($project_prefix)) {
+            throw new \InvalidArgumentException('non-nullable project_prefix cannot be null');
         }
-        $this->container['id'] = $id;
+        $this->container['project_prefix'] = $project_prefix;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets project_name_template
      *
      * @return string|null
      */
-    public function getName()
+    public function getProjectNameTemplate()
     {
-        return $this->container['name'];
+        return $this->container['project_name_template'];
     }
 
     /**
-     * Sets name
+     * Sets project_name_template
      *
-     * @param string|null $name name
+     * @param string|null $project_name_template The template string to use when generating Project names.  The available template options are:  - **today** - Today's date. Formatted as YYYY-MM-DD. - **trglocale** - The target locale for the given project. - **filename** - The name of the current file being uploaded. - **project_prefix** - The project_prefix value provided in the   configuration. - **project_name** - The project_name value assigned to the file in   the code. - **connector_id** - The Connector ID. - **connector_type** - The Connector Type (e.g. \"xtm\", \"salesforce\").
      *
      * @return self
      */
-    public function setName($name)
+    public function setProjectNameTemplate($project_name_template)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($project_name_template)) {
+            throw new \InvalidArgumentException('non-nullable project_name_template cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['project_name_template'] = $project_name_template;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets lilt_translation_workflow
      *
      * @return string|null
      */
-    public function getStatus()
+    public function getLiltTranslationWorkflow()
     {
-        return $this->container['status'];
+        return $this->container['lilt_translation_workflow'];
     }
 
     /**
-     * Sets status
+     * Sets lilt_translation_workflow
      *
-     * @param string|null $status This value tracks the status of the delivery.
+     * @param string|null $lilt_translation_workflow lilt_translation_workflow
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setLiltTranslationWorkflow($lilt_translation_workflow)
     {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($lilt_translation_workflow)) {
+            throw new \InvalidArgumentException('non-nullable lilt_translation_workflow cannot be null');
         }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
+        $allowedValues = $this->getLiltTranslationWorkflowAllowableValues();
+        if (!in_array($lilt_translation_workflow, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
+                    "Invalid value '%s' for 'lilt_translation_workflow', must be one of '%s'",
+                    $lilt_translation_workflow,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['status'] = $status;
+        $this->container['lilt_translation_workflow'] = $lilt_translation_workflow;
 
         return $this;
     }
 
     /**
-     * Gets trg_lang
+     * Gets lilt_default_due_date
      *
      * @return string|null
      */
-    public function getTrgLang()
+    public function getLiltDefaultDueDate()
     {
-        return $this->container['trg_lang'];
+        return $this->container['lilt_default_due_date'];
     }
 
     /**
-     * Sets trg_lang
+     * Sets lilt_default_due_date
      *
-     * @param string|null $trg_lang trg_lang
+     * @param string|null $lilt_default_due_date The due date to use when creating Lilt Jobs/Projects if no specific due date is specified on the file level.
      *
      * @return self
      */
-    public function setTrgLang($trg_lang)
+    public function setLiltDefaultDueDate($lilt_default_due_date)
     {
-        if (is_null($trg_lang)) {
-            throw new \InvalidArgumentException('non-nullable trg_lang cannot be null');
+        if (is_null($lilt_default_due_date)) {
+            throw new \InvalidArgumentException('non-nullable lilt_default_due_date cannot be null');
         }
-        $this->container['trg_lang'] = $trg_lang;
+        $this->container['lilt_default_due_date'] = $lilt_default_due_date;
 
         return $this;
     }
 
     /**
-     * Gets trg_locale
+     * Gets lilt_target_languages
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getTrgLocale()
+    public function getLiltTargetLanguages()
     {
-        return $this->container['trg_locale'];
+        return $this->container['lilt_target_languages'];
     }
 
     /**
-     * Sets trg_locale
+     * Sets lilt_target_languages
      *
-     * @param string|null $trg_locale trg_locale
+     * @param string[]|null $lilt_target_languages The list of target languages to use for the new job. The values provided should be present in the target_memories section of the configuration.
      *
      * @return self
      */
-    public function setTrgLocale($trg_locale)
+    public function setLiltTargetLanguages($lilt_target_languages)
     {
-        if (is_null($trg_locale)) {
-            throw new \InvalidArgumentException('non-nullable trg_locale cannot be null');
+        if (is_null($lilt_target_languages)) {
+            throw new \InvalidArgumentException('non-nullable lilt_target_languages cannot be null');
         }
-        $this->container['trg_locale'] = $trg_locale;
+        $this->container['lilt_target_languages'] = $lilt_target_languages;
 
         return $this;
     }
 
     /**
-     * Gets error_msg
+     * Gets handle_credit_transactions
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getErrorMsg()
+    public function getHandleCreditTransactions()
     {
-        return $this->container['error_msg'];
+        return $this->container['handle_credit_transactions'];
     }
 
     /**
-     * Sets error_msg
+     * Sets handle_credit_transactions
      *
-     * @param string|null $error_msg error_msg
+     * @param bool|null $handle_credit_transactions If true, credit transactions will be handled by the connector. If false, no credit transactions will be created for the job.
      *
      * @return self
      */
-    public function setErrorMsg($error_msg)
+    public function setHandleCreditTransactions($handle_credit_transactions)
     {
-        if (is_null($error_msg)) {
-            throw new \InvalidArgumentException('non-nullable error_msg cannot be null');
+        if (is_null($handle_credit_transactions)) {
+            throw new \InvalidArgumentException('non-nullable handle_credit_transactions cannot be null');
         }
-        $this->container['error_msg'] = $error_msg;
+        $this->container['handle_credit_transactions'] = $handle_credit_transactions;
 
         return $this;
     }
 
     /**
-     * Gets created_at
+     * Gets source_word_count
      *
-     * @return \DateTime|null
+     * @return float|null
      */
-    public function getCreatedAt()
+    public function getSourceWordCount()
     {
-        return $this->container['created_at'];
+        return $this->container['source_word_count'];
     }
 
     /**
-     * Sets created_at
+     * Sets source_word_count
      *
-     * @param \DateTime|null $created_at created_at
+     * @param float|null $source_word_count The source word count to use when creating credits transaction for instant transaltion jobs.
      *
      * @return self
      */
-    public function setCreatedAt($created_at)
+    public function setSourceWordCount($source_word_count)
     {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+        if (is_null($source_word_count)) {
+            throw new \InvalidArgumentException('non-nullable source_word_count cannot be null');
         }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at updated_at
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
-        }
-        $this->container['updated_at'] = $updated_at;
+        $this->container['source_word_count'] = $source_word_count;
 
         return $this;
     }
