@@ -1,11 +1,11 @@
-# # JobResponse1
+# # ErrorResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**limit** | **int** |  | [optional]
-**start** | **int** |  | [optional]
-**results** | [**\LiltConnectorSDK\Model\TranslationResponse[]**](TranslationResponse.md) |  | [optional]
+**error** | **string** |  | [optional]
+**message** | **string** |  | [optional]
+**status** | **int** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

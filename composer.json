@@ -1,6 +1,6 @@
 {
     "name": "lilt/lilt-connector-sdk-php",
-    "description": "This document describes the Plugin API for Lilt's Connector platform. The Plugin API is intented to be used by developers who wish to build integrations into their desired systems. The purpose of this API is to enable content transfer and status monitoring for localization projects.  - Read more about the conecpts and workflows in the   [user guide](/docs/api/v1.0). - Test the API interactively via [Swagger UI](/api/v1.0/ui).",
+    "description": "This document describes the Plugin API for Lilt's Connector platform. The Plugin API is intented to be used by developers who wish to build integrations into their desired systems. The purpose of this API is to enable content transfer and status monitoring for localization projects.  - Read more about the concepts and workflows in the   [user guide](/docs/api/v1.0). - Test the API interactively via [Swagger UI](/api/v1.0/ui).",
     "keywords": [
         "openapitools",
         "openapi-generator",
@@ -14,21 +14,21 @@
     "license": "unlicense",
     "authors": [
         {
-            "name": "OpenAPI-Generator contributors",
-            "homepage": "https://openapi-generator.tech"
+            "name": "Lilt Devs",
+            "homepage": "https://github.com/lilt"
         }
     ],
     "require": {
-        "php": ">=7.2",
+        "php": "^7.4 || ^8.0",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^6.5.5 || ^7.0",
-        "guzzlehttp/psr7": "^1.6 || ^2.0"
+        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/psr7": "^1.7 || ^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0 || ^9.0",
-        "friendsofphp/php-cs-fixer": "^2.12"
+        "friendsofphp/php-cs-fixer": "^3.5"
     },
     "autoload": {
         "psr-4": { "LiltConnectorSDK\\" : "lib/" }

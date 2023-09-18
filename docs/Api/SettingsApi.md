@@ -1,11 +1,11 @@
 # LiltConnectorSDK\SettingsApi
 
-All URIs are relative to https://connectors-admin.lilt.com/api/v1.0.
+All URIs are relative to https://connectors-admin.lilt.com/api/v1.0, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**servicesApiSettingsGetSettings()**](SettingsApi.md#servicesApiSettingsGetSettings) | **GET** /settings | Retrieve the settings.
-[**servicesApiSettingsUpdateSettings()**](SettingsApi.md#servicesApiSettingsUpdateSettings) | **PUT** /settings | Update the settings.
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**servicesApiSettingsGetSettings()**](SettingsApi.md#servicesApiSettingsGetSettings) | **GET** /settings | Retrieve the settings. |
+| [**servicesApiSettingsUpdateSettings()**](SettingsApi.md#servicesApiSettingsUpdateSettings) | **PUT** /settings | Update the settings. |
 
 
 ## `servicesApiSettingsGetSettings()`
@@ -66,7 +66,7 @@ This endpoint does not need any parameter.
 ## `servicesApiSettingsUpdateSettings()`
 
 ```php
-servicesApiSettingsUpdateSettings($settings_response1): \LiltConnectorSDK\Model\SettingsResponse1
+servicesApiSettingsUpdateSettings($settings_response): \LiltConnectorSDK\Model\SettingsResponse
 ```
 
 Update the settings.
@@ -88,10 +88,10 @@ $apiInstance = new LiltConnectorSDK\Api\SettingsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$settings_response1 = new \LiltConnectorSDK\Model\SettingsResponse1(); // \LiltConnectorSDK\Model\SettingsResponse1
+$settings_response = new \LiltConnectorSDK\Model\SettingsResponse(); // \LiltConnectorSDK\Model\SettingsResponse
 
 try {
-    $result = $apiInstance->servicesApiSettingsUpdateSettings($settings_response1);
+    $result = $apiInstance->servicesApiSettingsUpdateSettings($settings_response);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SettingsApi->servicesApiSettingsUpdateSettings: ', $e->getMessage(), PHP_EOL;
@@ -100,13 +100,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **settings_response1** | [**\LiltConnectorSDK\Model\SettingsResponse1**](../Model/SettingsResponse1.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **settings_response** | [**\LiltConnectorSDK\Model\SettingsResponse**](../Model/SettingsResponse.md)|  | [optional] |
 
 ### Return type
 
-[**\LiltConnectorSDK\Model\SettingsResponse1**](../Model/SettingsResponse1.md)
+[**\LiltConnectorSDK\Model\SettingsResponse**](../Model/SettingsResponse.md)
 
 ### Authorization
 
