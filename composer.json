@@ -14,12 +14,12 @@
     "license": "unlicense",
     "authors": [
         {
-            "name": "Lilt Devs",
-            "homepage": "https://github.com/lilt"
+            "name": "OpenAPI",
+            "homepage": "https://openapi-generator.tech"
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.1",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",

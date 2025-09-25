@@ -9,6 +9,7 @@ All URIs are relative to https://connectors-admin.lilt.com/api/v1.0, except if t
 | [**servicesApiDeliveriesDownloadDeliverySource()**](TranslationsApi.md#servicesApiDeliveriesDownloadDeliverySource) | **GET** /translations/{id}/source | Download a Translation Source. |
 | [**servicesApiDeliveriesGetDeliveriesByJobId()**](TranslationsApi.md#servicesApiDeliveriesGetDeliveriesByJobId) | **GET** /translations | Retrieve a list of Translations. |
 | [**servicesApiDeliveriesGetDeliveryById()**](TranslationsApi.md#servicesApiDeliveriesGetDeliveryById) | **GET** /translations/{id} | Retrieve a Translation. |
+| [**servicesApiDeliveriesPreviewDelivery()**](TranslationsApi.md#servicesApiDeliveriesPreviewDelivery) | **GET** /translations/{id}/preview | Get a Translation&#39;s source to target mapping. |
 | [**servicesApiDeliveriesUpdateDelivery()**](TranslationsApi.md#servicesApiDeliveriesUpdateDelivery) | **PUT** /translations/{id} | Update a Translation. |
 
 
@@ -291,6 +292,64 @@ try {
 ### Return type
 
 [**\LiltConnectorSDK\Model\TranslationResponse**](../Model/TranslationResponse.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `servicesApiDeliveriesPreviewDelivery()`
+
+```php
+servicesApiDeliveriesPreviewDelivery($id): \LiltConnectorSDK\Model\PreviewTranslationResponseInner[]
+```
+
+Get a Translation's source to target mapping.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = LiltConnectorSDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new LiltConnectorSDK\Api\TranslationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 12345; // int | The ID.
+
+try {
+    $result = $apiInstance->servicesApiDeliveriesPreviewDelivery($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TranslationsApi->servicesApiDeliveriesPreviewDelivery: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The ID. | |
+
+### Return type
+
+[**\LiltConnectorSDK\Model\PreviewTranslationResponseInner[]**](../Model/PreviewTranslationResponseInner.md)
 
 ### Authorization
 
