@@ -10,7 +10,7 @@ All URIs are relative to https://connectors-admin.lilt.com/api/v1.0, except if t
 ## `servicesApiCreditTransactionCreateCreditTransaction()`
 
 ```php
-servicesApiCreditTransactionCreateCreditTransaction($services_api_credit_transaction_create_credit_transaction_request)
+servicesApiCreditTransactionCreateCreditTransaction($services_api_settings_validate_request)
 ```
 
 Create a credit transaction. Request is expected to contain credits information encoded in jwt_token payload. Request encoded should have info for instant_translation_credits_change value, verified_translation_credits_change value, source_metadata which contains any identifying information to attach to the transaction, email for the user starting the transaction, and optionally lilt_token for the connector configuration.
@@ -28,10 +28,10 @@ $apiInstance = new LiltConnectorSDK\Api\CreditTransactionsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$services_api_credit_transaction_create_credit_transaction_request = new \LiltConnectorSDK\Model\ServicesApiCreditTransactionCreateCreditTransactionRequest(); // \LiltConnectorSDK\Model\ServicesApiCreditTransactionCreateCreditTransactionRequest
+$services_api_settings_validate_request = new \LiltConnectorSDK\Model\ServicesApiSettingsValidateRequest(); // \LiltConnectorSDK\Model\ServicesApiSettingsValidateRequest
 
 try {
-    $apiInstance->servicesApiCreditTransactionCreateCreditTransaction($services_api_credit_transaction_create_credit_transaction_request);
+    $apiInstance->servicesApiCreditTransactionCreateCreditTransaction($services_api_settings_validate_request);
 } catch (Exception $e) {
     echo 'Exception when calling CreditTransactionsApi->servicesApiCreditTransactionCreateCreditTransaction: ', $e->getMessage(), PHP_EOL;
 }
@@ -41,7 +41,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **services_api_credit_transaction_create_credit_transaction_request** | [**\LiltConnectorSDK\Model\ServicesApiCreditTransactionCreateCreditTransactionRequest**](../Model/ServicesApiCreditTransactionCreateCreditTransactionRequest.md)|  | [optional] |
+| **services_api_settings_validate_request** | [**\LiltConnectorSDK\Model\ServicesApiSettingsValidateRequest**](../Model/ServicesApiSettingsValidateRequest.md)|  | [optional] |
 
 ### Return type
 

@@ -6,6 +6,7 @@ All URIs are relative to https://connectors-admin.lilt.com/api/v1.0, except if t
 | ------------- | ------------- | ------------- |
 | [**servicesApiSettingsGetSettings()**](SettingsApi.md#servicesApiSettingsGetSettings) | **GET** /settings | Retrieve the settings. |
 | [**servicesApiSettingsUpdateSettings()**](SettingsApi.md#servicesApiSettingsUpdateSettings) | **PUT** /settings | Update the settings. |
+| [**servicesApiSettingsValidate()**](SettingsApi.md#servicesApiSettingsValidate) | **POST** /settings/validate | Validate Connector Configuration |
 
 
 ## `servicesApiSettingsGetSettings()`
@@ -107,6 +108,66 @@ try {
 ### Return type
 
 [**\LiltConnectorSDK\Model\SettingsResponse**](../Model/SettingsResponse.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `servicesApiSettingsValidate()`
+
+```php
+servicesApiSettingsValidate($services_api_settings_validate_request): \LiltConnectorSDK\Model\ConnectorConfigurationValidationResponse[]
+```
+
+Validate Connector Configuration
+
+This endpoint is used to validate a connector configuration
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = LiltConnectorSDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new LiltConnectorSDK\Api\SettingsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$services_api_settings_validate_request = new \LiltConnectorSDK\Model\ServicesApiSettingsValidateRequest(); // \LiltConnectorSDK\Model\ServicesApiSettingsValidateRequest
+
+try {
+    $result = $apiInstance->servicesApiSettingsValidate($services_api_settings_validate_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SettingsApi->servicesApiSettingsValidate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **services_api_settings_validate_request** | [**\LiltConnectorSDK\Model\ServicesApiSettingsValidateRequest**](../Model/ServicesApiSettingsValidateRequest.md)|  | [optional] |
+
+### Return type
+
+[**\LiltConnectorSDK\Model\ConnectorConfigurationValidationResponse[]**](../Model/ConnectorConfigurationValidationResponse.md)
 
 ### Authorization
 
