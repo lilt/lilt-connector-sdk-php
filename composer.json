@@ -14,8 +14,8 @@
     "license": "unlicense",
     "authors": [
         {
-            "name": "OpenAPI",
-            "homepage": "https://openapi-generator.tech"
+            "name": "Lilt Devs",
+            "homepage": "https://github.com/lilt"
         }
     ],
     "require": {
